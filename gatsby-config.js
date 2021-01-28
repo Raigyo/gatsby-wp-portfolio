@@ -28,26 +28,35 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-source-wordpress",
+      resolve: `gatsby-source-wordpress-experimental`,
       options: {
-        minimizeDeprecationNotice: true,
-        baseUrl: "gatsby-wordpress-course.local",
-        protocol: "http",
-        hostingWPCOM: false,
-        useACF: false,
-        verboseOutput: false,
-        perPage: 100,
-        concurrentRequests: 10,
-        includedRoutes: [
-          "**/categories",
-          "**/posts",
-          "**/pages",
-          "**/media",
-          "**/tags",
-          "**/taxonomies",
-          "**/users",
-        ],
+        // the only required plugin option for WordPress is the GraphQL url.
+        url:
+          process.env.WPGRAPHQL_URL ||
+          `https://raigyo-dev.be/gatsby-portfolio/graphql`,
       },
     },
+    // {
+    //   resolve: "gatsby-source-wordpress",
+    //   options: {
+    //     minimizeDeprecationNotice: true,
+    //     baseUrl: "localhost/wp-gatsby-portfolio/",
+    //     protocol: "http",
+    //     hostingWPCOM: false,
+    //     useACF: false,
+    //     verboseOutput: false,
+    //     perPage: 100,
+    //     concurrentRequests: 10,
+    //     includedRoutes: [
+    //       "**/categories",
+    //       "**/posts",
+    //       "**/pages",
+    //       "**/media",
+    //       "**/tags",
+    //       "**/taxonomies",
+    //       "**/users",
+    //     ],
+    //   },
+    // },
   ],
 }
