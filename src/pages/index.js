@@ -3,6 +3,10 @@ import { Link, graphql } from "gatsby" //highlight-line
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+/* If empty index page use: */
+// export default function(){return null};
+/* give your main page the name 'home' as url in WP */
+
 export default function Home({ data }) {
   return (
     <Layout>
