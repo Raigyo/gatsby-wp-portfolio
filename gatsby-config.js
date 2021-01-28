@@ -1,3 +1,9 @@
+require("dotenv").config()
+
+console.log(
+  `This WordPress Endpoint is used: '${process.env.GATSBY_WORDPRESS_URL}'`
+)
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby WordPress Starter`,
@@ -31,9 +37,7 @@ module.exports = {
       resolve: `gatsby-source-wordpress-experimental`,
       options: {
         // the only required plugin option for WordPress is the GraphQL url.
-        url:
-          process.env.WPGRAPHQL_URL ||
-          `https://raigyo-dev.be/gatsby-portfolio/graphql`,
+        url: `${process.env.GATSBY_WORDPRESS_URL}/graphql`,
       },
     },
     // {

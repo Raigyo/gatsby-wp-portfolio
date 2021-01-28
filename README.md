@@ -1,4 +1,4 @@
-# Gatsby JS
+# Gatsby portfolio using Wordpress as headless CMS and GraphQL
 
 *January 2021*
 
@@ -45,3 +45,5 @@ In the *gatsby-config.js* of the starter you just set up, update the plugin opti
 ## Useful links
 
 - [How to use WordPress with React](https://rapidapi.com/blog/wordpress-react-api/)
+- [Basic WordPress & Gatsby Setup - Guide to Gatsby WordPress Starter Advanced with Previews, i18n and more](https://dev.to/nevernull/basic-wordpress-gatsby-setup-guide-to-gatsby-wordpress-starter-advanced-with-previews-i18n-and-more-44d8)
+- [Creating a Gatsby Site with WordPress Data](https://css-tricks.com/creating-a-gatsby-site-with-wordpress-data/#section-2-porting-posts-and-pages-from-wordpress)

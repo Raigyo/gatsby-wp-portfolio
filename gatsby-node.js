@@ -1,8 +1,13 @@
 const path = require(`path`)
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  return graphql(`
+  const {
+    data: {
+      allWpPost: { nodes: allPosts },
+      allWpPage: { nodes: allPages },
+    },
+  } = await graphql(`
     {
       allWpPost(sort: { fields: [date] }) {
         nodes {
@@ -12,20 +17,35 @@ exports.createPages = ({ graphql, actions }) => {
           slug
         }
       }
+      allWpPage(sort: { fields: [date] }) {
+        nodes {
+          id
+          slug
+          status
+          title
+          content
+        }
+      }
     }
-  `).then(result => {
-    //highlight-start
-    result.data.allWpPost.nodes.forEach(node => {
-      createPage({
-        path: node.slug,
-        component: path.resolve(`./src/templates/post.js`),
-        context: {
-          // This is the $slug variable
-          // passed to post.js
-          slug: node.slug,
-        },
-      })
+  `)
+  // if (data.errors) {
+  //   console.error(data.errors)
+  // }
+
+  //const { allWpPost } = wpData.data
+  //console.log(wpData.data)
+  allPosts.map(post => {
+    createPage({
+      path: `/${post.slug}`,
+      component: require.resolve(`./src/templates/post.js`),
+      context: { post },
     })
-    //highlight-end
+  })
+  allPages.map(page => {
+    createPage({
+      path: `/${page.slug}`,
+      component: require.resolve(`./src/templates/page.js`),
+      context: { page },
+    })
   })
 }

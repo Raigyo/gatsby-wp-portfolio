@@ -8,7 +8,7 @@ export default function Home({ data }) {
     <Layout>
       <SEO title="home" />
       <h1>My WordPress Blog</h1>
-      <h4>Posts</h4>
+      <h2>Posts</h2>
       {data.allWpPost.nodes.map(node => (
         <div key={node.slug}>
           {/* highlight-start */}
@@ -17,6 +17,14 @@ export default function Home({ data }) {
           </Link>
           {/* highlight-end */}
           <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+        </div>
+      ))}
+      <h2>Pages</h2>
+      {data.allWpPage.nodes.map(node => (
+        <div key={node.slug}>
+          <Link to={node.slug}>
+            <p>{node.title}</p>
+          </Link>
         </div>
       ))}
     </Layout>
@@ -30,6 +38,15 @@ export const pageQuery = graphql`
         title
         excerpt
         slug
+      }
+    }
+    allWpPage(sort: { fields: [date] }) {
+      nodes {
+        id
+        slug
+        status
+        title
+        content
       }
     }
   }

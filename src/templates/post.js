@@ -1,12 +1,11 @@
 import React from "react"
 import Layout from "../components/layout"
-import { graphql } from "gatsby"
+import SEO from "../components/seo"
 
-export default function BlogPost({ data }) {
-  const post = data.allWpPost.nodes[0]
-  console.log(post)
+const Post = ({ pageContext: { post } }) => {
   return (
     <Layout>
+      <SEO title={post.title} />
       <div>
         <h1>{post.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: post.content }} />
@@ -14,13 +13,4 @@ export default function BlogPost({ data }) {
     </Layout>
   )
 }
-export const query = graphql`
-  query($slug: String!) {
-    allWpPost(filter: { slug: { eq: $slug } }) {
-      nodes {
-        title
-        content
-      }
-    }
-  }
-`
+export default Post
