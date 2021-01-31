@@ -16,6 +16,7 @@ exports.createPages = async ({ graphql, actions }) => {
     data: {
       allWpPost: { nodes: allPosts },
       allWpPage: { nodes: allPages },
+      allWordpressWpApiMenusMenusItems: { nodes: allMenus },
     },
     // The “graphql” function allows us to run arbitrary
     // queries against the local WordPress graphql schema. Think of
@@ -38,6 +39,17 @@ exports.createPages = async ({ graphql, actions }) => {
           status
           title
           content
+        }
+      }
+      allWordpressWpApiMenusMenusItems {
+        nodes {
+          name
+          count
+          items {
+            order
+            title
+            url
+          }
         }
       }
     }
@@ -72,6 +84,17 @@ exports.createPages = async ({ graphql, actions }) => {
       //component: require.resolve(`./src/templates/page.js`),
       component: `/${pageTemplate}`,
       context: { page },
+    })
+  })
+
+  // MENUS
+  const menuTemplate = path.resolve("./src/templates/menu.js")
+  allMenus.map(menu => {
+    console.log("menu items: ", menu)
+    createPage({
+      path: `/${menu.slug}`,
+      component: `/${menuTemplate}`,
+      context: { menu },
     })
   })
 }

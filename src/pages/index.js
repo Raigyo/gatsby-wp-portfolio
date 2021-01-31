@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 
 /* If empty index page use: */
 // export default function(){return null};
-/* give your main page the name 'home' as url in WP */
+/* give your main page the name 'home' as url slog in WP */
 
 export default function Home({ data }) {
   return (
@@ -25,6 +25,14 @@ export default function Home({ data }) {
       ))}
       <h2>Pages</h2>
       {data.allWpPage.nodes.map(node => (
+        <div key={node.slug}>
+          <Link to={node.slug}>
+            <p>{node.title}</p>
+          </Link>
+        </div>
+      ))}
+      <h2>Menus</h2>
+      {data.allWordpressWpApiMenusMenusItems.nodes.map(node => (
         <div key={node.slug}>
           <Link to={node.slug}>
             <p>{node.title}</p>
@@ -51,6 +59,17 @@ export const pageQuery = graphql`
         status
         title
         content
+      }
+    }
+    allWordpressWpApiMenusMenusItems {
+      nodes {
+        name
+        count
+        items {
+          order
+          title
+          url
+        }
       }
     }
   }
