@@ -7,6 +7,7 @@
 
 import React from "react"
 import PropTypes from "prop-types"
+import MainMenu from "./MainMenu"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
@@ -26,6 +27,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
+      <MainMenu />
       <div
         style={{
           margin: `0 auto`,
