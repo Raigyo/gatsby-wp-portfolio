@@ -68,6 +68,9 @@ Used to retrieve menus in WP.
   },
 },
 ````
+- [styled-components](https://www.gatsbyjs.com/docs/how-to/styling/styled-components/): Styled Components lets you use actual CSS syntax inside your components. Styled Components is a variant on “CSS-in-JS”—which solves many of the problems with traditional CSS..
+
+`npm install gatsby-plugin-styled-components styled-components babel-plugin-styled-components`
 
 ## WP Plugins
 
