@@ -38,18 +38,12 @@ module.exports = {
       options: {
         // the only required plugin option for WordPress is the GraphQL url.
         url: `${process.env.GATSBY_WORDPRESS_URL}/graphql`,
+        schema: {
+          requestConcurrency: 5,
+          previewRequestConcurrency: 2,
+        },
       },
     },
-    // {
-    //   resolve: "gatsby-source-wordpress-menus",
-    //   options: {
-    //     wordpressUrl: process.env.GATSBY_WORDPRESS_URL,
-    //     languages: ["fr", "en"],
-    //     enableWpml: true,
-    //     allowCache: true,
-    //     maxCacheDurationSeconds: 60 * 60 * 24,
-    //   },
-    // },
     {
       resolve: "gatsby-source-wordpress",
       options: {
@@ -62,15 +56,9 @@ module.exports = {
         perPage: 100,
         concurrentRequests: 10,
         includedRoutes: [
-          // "**/categories",
-          // "**/posts",
-          // "**/pages",
-          // "**/media",
-          // "**/tags",
-          // "**/taxonomies",
-          // "**/users",
           "**/*/*/menus",
           "**/*/*/menu-locations",
+          "**/*/*/portfolio",
         ],
       },
     },

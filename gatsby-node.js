@@ -17,6 +17,7 @@ exports.createPages = async ({ graphql, actions }) => {
       allWpPost: { nodes: allPosts },
       allWpPage: { nodes: allPages },
       allWordpressWpApiMenusMenusItems: { nodes: allMenus },
+      allWordpressWpPortfolio: { nodes: allPortfolioPosts },
     },
     // The “graphql” function allows us to run arbitrary
     // queries against the local WordPress graphql schema. Think of
@@ -39,6 +40,9 @@ exports.createPages = async ({ graphql, actions }) => {
           status
           title
           content
+          template {
+            templateName
+          }
         }
       }
       allWordpressWpApiMenusMenusItems {
@@ -52,15 +56,23 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allWordpressWpPortfolio {
+        nodes {
+          id
+          title
+          slug
+          excerpt
+          content
+          featured_image_src
+        }
+      }
     }
   `)
-  // if (data.errors) {
-  //   console.error(data.errors)
-  // }
 
   // POSTS
   const postTemplate = path.resolve("./src/templates/post.js")
   allPosts.map(post => {
+    // console.log("post items: ", post)
     // Gatsby uses Redux to manage its internal state.
     // Plugins and sites can use functions like "createPage"
     // to interact with Gatsby.
@@ -76,13 +88,31 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
+  // POSTS / Portfolio type
+  const postPortfolioTemplate = path.resolve("./src/templates/portfolio.js")
+  allPortfolioPosts.map(portfolio => {
+    // console.log("portfolio items: ", portfolio)
+    createPage({
+      path: `/${portfolio.slug}`,
+      component: `/${postPortfolioTemplate}`,
+      context: { portfolio },
+    })
+  })
+
   // PAGES
   const pageTemplate = path.resolve("./src/templates/page.js")
+  const portfolioUnderContentTemplate = path.resolve(
+    "./src/templates/portfolioUnderContent.js"
+  )
   allPages.map(page => {
+    // console.log("page items: ", page)
+    // console.log("page.template.templateName: ", page.template.templateName)
     createPage({
       path: `/${page.slug}`,
-      //component: require.resolve(`./src/templates/page.js`),
-      component: `/${pageTemplate}`,
+      component:
+        page.template.templateName === "Portfolio Items Below Content"
+          ? `/${portfolioUnderContentTemplate}`
+          : `/${pageTemplate}`,
       context: { page },
     })
   })
@@ -90,7 +120,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // MENUS
   const menuTemplate = path.resolve("./src/templates/menu.js")
   allMenus.map(menu => {
-    console.log("menu items: ", menu)
+    // console.log("menu items: ", menu)
     createPage({
       path: `/${menu.slug}`,
       component: `/${menuTemplate}`,
