@@ -46,7 +46,7 @@ const PortfolioItems = () => {
             <h2>{item.title}</h2>
             <PortfolioImage src={item.featured_image_src} alt="Thumbnail" />
             <div dangerouslySetInnerHTML={{ __html: item.excerpt }} />
-            <Link to={`/portfolio/${item.slug}`}>Read more</Link>
+            <Link to={`/${item.slug}`}>Read more</Link>
           </PortfolioItem>
         ))}
       </PortfolioItemsWrapper>
