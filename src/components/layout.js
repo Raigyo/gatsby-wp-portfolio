@@ -9,12 +9,12 @@ const GlobalStyles = createGlobalStyle`
   body, html{
     font-family: 'Open Sans', sans-serif;
     margin: 0 !important;
-    padding: 0 !important;
   }
 `
 
 const LayoutWrapper = styled.div`
   max-width: 960px;
+  padding: 10px;
   margin: 0 auto;
 `
 

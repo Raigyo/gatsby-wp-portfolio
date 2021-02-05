@@ -8,7 +8,6 @@ const Page = ({ pageContext: { page } }) => {
     <Layout>
       <SEO title={page.title} />
       <h1>{page.title}</h1>
-      <h2>Test undercontent</h2>
       <div dangerouslySetInnerHTML={{ __html: page.content }} />
       <PortfolioItems />
     </Layout>

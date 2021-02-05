@@ -78,6 +78,8 @@ Used to retrieve menus in WP.
 - [WPGatsby](https://wordpress.org/plugins/wp-gatsby/): This plugin configures your WordPress site to be an optimized source for Gatsby.
 - [WPGraphQL](https://wordpress.org/plugins/wp-graphql/): WPGraphQL is a free, open-source WordPress plugin that provides an extendable GraphQL schema and API for any WordPress site.
 - [WP API Menus](https://wordpress.org/plugins/wp-api-menus/): This plugin extends the WordPress JSON REST API with new routes for WordPress registered menus. Ex: [https://<WP-URL>/wp-json/wp-api-menus/v2/menus](https://<WP-URL>/wp-json/wp-api-menus/v2/menus)
+- [Advanced Custom Fields](https://fr.wordpress.org/plugins/advanced-custom-fields/): Use the Advanced Custom Fields plugin to take full control of your WordPress edit screens & custom field data.
+- [ACF to REST API](https://fr.wordpress.org/plugins/acf-to-rest-api/): Exposes Advanced Custom Fields Endpoints in the WordPress REST API.
 
 ## WP: functions.php
 
@@ -160,3 +162,4 @@ function get_image_src( $object, $field_name, $request ) {
 - [gatsby-source-wordpress: Get menus](https://github.com/gatsbyjs/gatsby/issues/2426)
 - [Unsplash - The internet’s source of freely-usable images.](https://unsplash.com/)
 - [WP Rest API: details of latest post including featured media url in one request?](https://wordpress.stackexchange.com/questions/241271/wp-rest-api-details-of-latest-post-including-featured-media-url-in-one-request)
+- [Favicon & App Icon Generator](https://www.favicon-generator.org/)

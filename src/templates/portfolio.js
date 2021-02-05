@@ -18,14 +18,14 @@ const Portfolio = ({ pageContext: { portfolio } }) => {
       <SEO title={portfolio.title} />
       <div>
         <h1>{portfolio.title}</h1>
-        <strong>Website url:</strong>
-        {/* <a
-          href={pageContext.acf.portfolio_url}
+        <strong>Website url: </strong>
+        <a
+          href={portfolio.acf.portfolio_url}
           target="_blank"
           rel="noopener noreferrer"
         >
-          {pageContext.acf.portfolio_url}
-        </a> */}
+          {portfolio.acf.portfolio_url}
+        </a>
         <div>
           <FeaturedImage src={portfolio.featured_image_src} />
         </div>
