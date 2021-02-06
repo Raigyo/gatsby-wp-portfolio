@@ -79,7 +79,7 @@ exports.createPages = async ({ graphql, actions }) => {
           // as a template component. The `context` is
           // optional but is often necessary so the template
           // can query data specific to each page.
-          path: `/${post.slug}`,
+          path: `/blog/${post.slug}`,
           component: `/${postTemplate}`,
           context: { post },
         })
@@ -146,6 +146,7 @@ exports.createPages = async ({ graphql, actions }) => {
       _.each(posts, post => {
         createPage({
           path: `/blog/${post.node.slug}`,
+          matchPath: "/blog/*",
           component: `/${pageTemplate}`,
           context: post.node,
         })

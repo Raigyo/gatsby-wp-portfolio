@@ -148,6 +148,8 @@ function get_image_src( $object, $field_name, $request ) {
     },
 ````
 
+Note: in Wordpress, even if it generates excerpt automatically, we need to insert them because when we migrate the automatic version disappear.
+
 ## Useful links
 
 - [Github repo for Gatsby wordpress theme - tomphill/wp-gatsby-js-theme-starter](https://github.com/tomphill/wp-gatsby-js-theme-starter)
