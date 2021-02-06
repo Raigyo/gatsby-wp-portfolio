@@ -160,6 +160,8 @@ function get_image_src( $object, $field_name, $request ) {
 - [WP - All-in-One WP Migration Import Stuck Solved](https://webhostingadvices.com/all-in-one-wp-migration-import-stuck/)
 - [Migrate a WordPress Site to the Jamstack Using Gatsby](https://egghead.io/lessons/gatsby-install-wpgraphql-and-wpgraphiql-plugins-in-wordpress-using-the-command-line)
 - [gatsby-source-wordpress: Get menus](https://github.com/gatsbyjs/gatsby/issues/2426)
+- [Dynamic Routing in Gatsby](https://www.qed42.com/blog/dynamic-routing-gatsby#:~:text=Dynamic%20routing%20means%20there%20is,is%20associated%20with%20each%20link.)
+- [Preview in Headless Wordpress with Gatsby](https://www.tonyle.dev/headless-wordpress-preview/)
 - [Unsplash - The internet’s source of freely-usable images.](https://unsplash.com/)
 - [WP Rest API: details of latest post including featured media url in one request?](https://wordpress.stackexchange.com/questions/241271/wp-rest-api-details-of-latest-post-including-featured-media-url-in-one-request)
 - [Favicon & App Icon Generator](https://www.favicon-generator.org/)
