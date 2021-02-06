@@ -88,7 +88,8 @@ exports.createPages = async ({ graphql, actions }) => {
       const postPortfolioTemplate = path.resolve("./src/templates/portfolio.js")
       res.data.allWordpressWpPortfolio.nodes.map(portfolio => {
         createPage({
-          path: `/${portfolio.slug}`,
+          path: `/portfolio/${portfolio.slug}`,
+          matchPath: "/portfolio/*",
           component: `/${postPortfolioTemplate}`,
           context: { portfolio },
         })
@@ -126,9 +127,10 @@ exports.createPages = async ({ graphql, actions }) => {
         "./src/templates/blogPostList.js"
       )
       // prettier-ignore
-      Array.from({ length: numberOfPages }).forEach((page, index) => {
+      Array.from({ length: numberOfPages }).forEach((_, index) => {
       createPage({
         path: index === 0 ? "/blog" : `/blog/${index + 1}`,
+        matchPath: "/blog/*",
         component: `/${blogPostListTemplate}`,
         context: {
           posts: posts.slice(
@@ -140,10 +142,10 @@ exports.createPages = async ({ graphql, actions }) => {
         },
       })
 
-      const pageTemplate = path.resolve("./src/templates/page.js")
+      const pageTemplate = path.resolve("./src/templates/post.js")
       _.each(posts, post => {
         createPage({
-          path: `/post/${post.node.slug}`,
+          path: `/blog/${post.node.slug}`,
           component: `/${pageTemplate}`,
           context: post.node,
         })

@@ -33,23 +33,21 @@ const BlogPostList = ({ pageContext }) => {
           <small>{post.date}</small>
           <p dangerouslySetInnerHTML={{ __html: post.excerpt }} />
           <div>
-            <Link to={`/${post.slug}`}>Read more</Link>
+            <Link to={`/blog/${post.slug}`}>Read more</Link>
           </div>
         </div>
       ))}
       <Pagination>
-        {Array.from({ length: pageContext.numberOfPages }).map(
-          (page, index) => (
-            <PageNumberWrapper
-              key={index}
-              isCurrentPage={index + 1 === pageContext.currentPage}
-            >
-              <PageNumber to={index === 0 ? "/blog" : `/blog/${index + 1}`}>
-                {index + 1}
-              </PageNumber>
-            </PageNumberWrapper>
-          )
-        )}
+        {Array.from({ length: pageContext.numberOfPages }).map((_, index) => (
+          <PageNumberWrapper
+            key={index}
+            isCurrentPage={index + 1 === pageContext.currentPage}
+          >
+            <PageNumber to={index === 0 ? "/blog" : `/blog/${index + 1}`}>
+              {index + 1}
+            </PageNumber>
+          </PageNumberWrapper>
+        ))}
       </Pagination>
     </Layout>
   )

@@ -52,12 +52,21 @@ module.exports = {
         baseUrl: `${process.env.GATSBY_WORDPRESS_URL}`,
         protocol: "https",
         hostingWPCOM: false,
-        useACF: false,
+        useACF: true,
+        acfOptionPageIds: [],
         verboseOutput: false,
         perPage: 100,
         concurrentRequests: 10,
         includedRoutes: ["**/*/*/menus", "**/*/*/portfolio"],
+        excludedRoutes: [],
+        ormalizer: function ({ entities }) {
+          return entities
+        },
       },
     },
+    // this (optional) plugin enables Progressive Web App + Offline functionality
+    // To learn more, visit: https://gatsby.app/offline
+    // 'gatsby-plugin-offline',
+    "gatsby-plugin-netlify",
   ],
 }
