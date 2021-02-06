@@ -56,11 +56,7 @@ module.exports = {
         verboseOutput: false,
         perPage: 100,
         concurrentRequests: 10,
-        includedRoutes: [
-          "**/*/*/menus",
-          "**/*/*/menu-locations",
-          "**/*/*/portfolio",
-        ],
+        includedRoutes: ["**/*/*/menus", "**/*/*/portfolio"],
       },
     },
   ],
