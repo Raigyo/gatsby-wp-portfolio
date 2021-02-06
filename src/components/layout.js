@@ -1,3 +1,5 @@
+// Main layout component
+
 import React from "react"
 import MainMenu from "./MainMenu"
 import styled, { createGlobalStyle } from "styled-components"
