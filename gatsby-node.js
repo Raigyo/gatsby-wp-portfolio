@@ -68,7 +68,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
     .then(res => {
-      // POSTS
+      // // POSTS
       const postTemplate = path.resolve("./src/templates/post.js")
       res.data.allWpPost.nodes.map(post => {
         // Gatsby uses Redux to manage its internal state.
@@ -117,6 +117,39 @@ exports.createPages = async ({ graphql, actions }) => {
           context: { menu },
         })
       })
+      // POSTS LIST / 2 per page
+      const posts = res.data.allWpPost.nodes
+      const postsPerPage = 2
+      // 'ceil' round to the upper integer
+      const numberOfPages = Math.ceil(posts.length / postsPerPage)
+      const blogPostListTemplate = path.resolve(
+        "./src/templates/blogPostList.js"
+      )
+      // prettier-ignore
+      Array.from({ length: numberOfPages }).forEach((page, index) => {
+      createPage({
+        path: index === 0 ? "/blog" : `/blog/${index + 1}`,
+        component: `/${blogPostListTemplate}`,
+        context: {
+          posts: posts.slice(
+            index * postsPerPage,
+            (index * postsPerPage + postsPerPage)
+          ),
+          numberOfPages,
+          currentPage: index + 1,
+        },
+      })
+
+      const pageTemplate = path.resolve("./src/templates/page.js")
+      _.each(posts, post => {
+        createPage({
+          path: `/post/${post.node.slug}`,
+          component: `/${pageTemplate}`,
+          context: post.node,
+        })
+      })
     })
+    }) // \.then
+
     .catch(err => console.log(err))
 }
