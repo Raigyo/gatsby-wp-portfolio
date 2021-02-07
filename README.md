@@ -1,19 +1,75 @@
-# Gatsby portfolio using Wordpress as headless CMS and GraphQL
+# JAMstack: Gatsby portfolio using Wordpress as headless CMS API and GraphQL
 
-*January 2021*
+*January - February 2021*
 
-> 🔨 From udemy '[Gatsby JS: Build Gatsby static sites with React & WordPress](https://www.udemy.com/course/gatsby-js-react-wordpress-graphql/)'.
+> 🔨 Portfolio and blog project using a Wordpress as API. Datas are fetched with GraphQL and generated as a static website using Gatsby. From udemy '[Gatsby JS: Build Gatsby static sites with React & WordPress](https://www.udemy.com/course/gatsby-js-react-wordpress-graphql/)'.
 
+See the static site generated on [Netlify](https://pedantic-yonath-ad9ca3.netlify.app/).
 
 ![gatsby-logo](_readme-img/gatsby-logo.jpg)
 
-## Concepts
+![gatsby-capture.png](_readme-img/gatsby-capture-0.png)
+
+![wp-capture.png](_readme-img/wp-capture-01.png)
+
+GatsbyJS is a React-based, GraphQL powered, static site generator.
+
+It uses powerful preconfiguration to build a website that uses only static files for incredibly fast page loads, service workers, code splitting, server-side rendering, intelligent image loading, asset optimization, and data prefetching. All out of the box.
+
+In this project Wordpress is used as API.
+
+Gatsby is what we call **Jamstack**.
+
+JavaScript
+
+Dynamic functionalities are handled by JavaScript. There is no restriction on which framework or library you must use.
+
+APIs
+
+Server side operations are abstracted into reusable APIs and accessed over HTTPS with JavaScript. These can be third party services or your custom function.
+
+Markup
+
+Websites are served as static HTML files. These can be generated from source files, such as Markdown, using a Static Site Generator.
+
+## Front-end: Gatsby
 
 See the original starter [readme.md](README-Gatsby-cli.md) for more informations about Gatsby.
 
+Gatsby retrieve some datas from WP using GraphQL, posts, pages, menus, custom content.
 
+![gatsby-capture.png](_readme-img/gatsby-capture.png)
 
-## Front-end: Gatsby
+### Structure
+
+/
+|-- /.cache
+|-- /plugins
+|-- /public
+|-- /src
+    |-- /components
+        |-- FavIco.js
+        |-- layout.js
+        |-- Logo.js
+        |-- MainMenu.js
+        |-- PortfolioItems.js
+        |-- seo.js
+        |-- SiteInfo.js
+    |-- /pages
+        |-- 404.js
+        |-- index.js
+    |-- /templates
+        |-- blogPostList.js
+        |-- menu.js
+        |-- page.js
+        |-- portfolio.js
+        |-- portfolioUnderContent.js
+        |-- post.js
+|-- /static
+|-- gatsby-config.js
+|-- gatsby-node.js
+|-- gatsby-ssr.js
+|-- gatsby-browser.js
 
 ### Stack / Dependancies
 
@@ -87,12 +143,14 @@ It's a blank theme including template *portfolio_under_content.php* and some cus
 
 #### Pages
 
-**Web and App Development**
+*Web and App Development*
 
 - Title + content
 - URL Slug: home
 
-**Portfolio**
+*Portfolio*
+
+Several posts:
 
 - Title + content
 - URL Slug: portfolio
@@ -126,21 +184,21 @@ Note: in Wordpress, even if it generates excerpt automatically, we need to inser
 
 - Menu Name: main-menu
 
-**Home**
+*Home*
 
 - Type: page
 - Navigation Label: Home
 
 Links to the pages of the website.
 
-**Portfolio**
+*Portfolio*
 
 - Type: page
 - Navigation Label: Portfolio
 
 Links to the portfolio posts of the website.
 
-**Blog**
+*Blog*
 
 - Type: Custom link
 - Navigation Label: Blog

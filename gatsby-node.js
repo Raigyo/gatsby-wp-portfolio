@@ -131,7 +131,6 @@ exports.createPages = async ({ graphql, actions }) => {
       Array.from({ length: numberOfPages }).map((page, index) => {
         createPage({
           path: index === 0 ? "/blog" : `/blog/${index + 1}`,
-          //matchPath: "/blog/*",
           component: `/${blogPostListTemplate}`,
           context: {
             posts: posts.slice(index * postsPerPage, (index * postsPerPage) + postsPerPage),

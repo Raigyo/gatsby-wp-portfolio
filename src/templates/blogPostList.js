@@ -24,9 +24,6 @@ const PageNumber = styled(Link)`
 // \ STYLES
 
 const BlogPostList = ({ pageContext }) => {
-  console.log("---------")
-  console.log("pageContext: ", pageContext)
-  console.log("---------")
   return (
     <Layout>
       {pageContext.posts.map(post => (
