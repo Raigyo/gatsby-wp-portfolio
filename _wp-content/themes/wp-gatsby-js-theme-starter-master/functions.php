@@ -22,7 +22,7 @@ add_action('init', 'create_custom_portfolio_post_type');
 add_action( 'rest_api_init', 'add_thumbnail_to_JSON' );
 function add_thumbnail_to_JSON() {
 //Add featured image
-register_rest_field( 
+register_rest_field(
     'portfolio', // Where to add the field (Here, blog posts. Could be an array)
     'featured_image_src', // Name of new field (You can call this anything)
     array(

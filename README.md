@@ -11,18 +11,11 @@
 
 See the original starter [readme.md](README-Gatsby-cli.md) for more informations about Gatsby.
 
-## WP Json test
 
-````
-wp-json/wp/v2/posts
-wp-json/wp/v2/pages
-wp-json/wp/v2/portfolio
-wp-json/wp/v2/favicon
-wp-json/wp/v2/logo
-/wp-json/wp-api-menus/v2/menus
-````
 
-## Stack / Dependancies
+## Front-end: Gatsby
+
+### Stack / Dependancies
 
 - [gatsby-source-wordpress-experimental](https://www.npmjs.com/package/gatsby-source-wordpress-experimental): This plugin is the official recommended way to use WordPress with Gatsby.
 
@@ -78,17 +71,107 @@ Used to retrieve menus in WP.
 
 `npm install gatsby-plugin-styled-components styled-components babel-plugin-styled-components`
 
-## WP Plugins
+## Back-end: Wordpress
+
+![wp-capture.png](_readme-img/wp-capture.png)
+
+## Theme
+
+We use the following content as theme: ./wp-content/themes/wp-gatsby-js-theme-starter-master
+
+Zip it and import it as theme in WP.
+
+It's a blank theme including template *portfolio_under_content.php* and some customized content in *functions.php* (cfr. infra).
+
+### Type of contents
+
+#### Pages
+
+**Web and App Development**
+
+- Title + content
+- URL Slug: home
+
+**Portfolio**
+
+- Title + content
+- URL Slug: portfolio
+- Template: Portfolio items below content (created in WP using PHP, cfr. infra))
+
+#### Posts
+
+Several posts:
+
+- Title + content
+- Excerp
+
+Note: in Wordpress, even if it generates excerpt automatically, we need to insert them because when we migrate the automatic version disappear.
+
+#### Custom Fields (Advanced Custom Fields / ACF to REST-API ): Portfolio
+
+- Field Label:
+- Field Name
+- Required: Yes
+- Rules: Show this field group if Post Type is equal to Portfolio
+
+![wp-custom-field.png](_readme-img/wp-custom-field.png)
+
+#### Custom posts: Portfolio
+
+- Title + content
+- Excerp
+- Image
+
+#### Menus (Appearance/Menus)
+
+- Menu Name: main-menu
+
+**Home**
+
+- Type: page
+- Navigation Label: Home
+
+Links to the pages of the website.
+
+**Portfolio**
+
+- Type: page
+- Navigation Label: Portfolio
+
+Links to the portfolio posts of the website.
+
+**Blog**
+
+- Type: Custom link
+- Navigation Label: Blog
+- URL: /blog
+
+## Permalink Settings)(Settings/Permalink)
+
+Custom Structure: /post/%postname%/
+
+### WP Plugins
 
 - [WPGatsby](https://wordpress.org/plugins/wp-gatsby/): This plugin configures your WordPress site to be an optimized source for Gatsby.
 - [WPGraphQL](https://wordpress.org/plugins/wp-graphql/): WPGraphQL is a free, open-source WordPress plugin that provides an extendable GraphQL schema and API for any WordPress site.
 - [WP API Menus](https://wordpress.org/plugins/wp-api-menus/): This plugin extends the WordPress JSON REST API with new routes for WordPress registered menus. Ex: [https://<WP-URL>/wp-json/wp-api-menus/v2/menus](https://<WP-URL>/wp-json/wp-api-menus/v2/menus)
 - [Advanced Custom Fields](https://fr.wordpress.org/plugins/advanced-custom-fields/): Use the Advanced Custom Fields plugin to take full control of your WordPress edit screens & custom field data.
 - [ACF to REST API](https://fr.wordpress.org/plugins/acf-to-rest-api/): Exposes Advanced Custom Fields Endpoints in the WordPress REST API.
-- [Wordpress api logo plugin](https://github.com/tomphill/wp-rest-api-logo)
-- [Wordpress api favicon plugin](https://github.com/tomphill/wp-rest-api-favicon)
+- [Wordpress api logo plugin](https://github.com/tomphill/wp-rest-api-logo): Used to retrieve Logo defined in 'Appearance/Customize/Site identity/Logo).
+- [Wordpress api favicon plugin](https://github.com/tomphill/wp-rest-api-favicon): Used to retrieve Favicon defined in 'Appearance/Customize/Site identity/Site icon).
 
-## WP: functions.php
+### WP Json test
+
+````
+/wp-json/wp/v2/posts
+/wp-json/wp/v2/pages
+/wp-json/wp/v2/portfolio
+/wp-json/wp-api-menus/v2/menus
+/wp-json/wp/v2/favicon
+/wp-json/wp/v2/logo
+````
+
+### WP: functions.php
 
 We add custom posts content in WP (portfolio).
 
@@ -154,10 +237,6 @@ function get_image_src( $object, $field_name, $request ) {
       },
     },
 ````
-
-Note: in Wordpress, even if it generates excerpt automatically, we need to insert them because when we migrate the automatic version disappear.
-
-
 
 ## Useful links
 
