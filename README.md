@@ -42,6 +42,7 @@ Gatsby retrieve some datas from WP using GraphQL, posts, pages, menus, custom co
 
 ### Structure
 
+````
 /
 |-- /.cache
 |-- /plugins
@@ -70,6 +71,7 @@ Gatsby retrieve some datas from WP using GraphQL, posts, pages, menus, custom co
 |-- gatsby-node.js
 |-- gatsby-ssr.js
 |-- gatsby-browser.js
+````
 
 ### Stack / Dependancies
 
