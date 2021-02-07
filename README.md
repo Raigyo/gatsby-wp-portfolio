@@ -204,9 +204,13 @@ Links to the portfolio posts of the website.
 - Navigation Label: Blog
 - URL: /blog
 
-## Permalink Settings)(Settings/Permalink)
+## Permalink Settings (Settings/Permalink)
 
 Custom Structure: /post/%postname%/
+
+## Logo and favicon
+
+Add a logo and a favicon in *Appearance/Customize/Site identity*.
 
 ### WP Plugins
 
