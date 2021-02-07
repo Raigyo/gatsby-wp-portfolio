@@ -8,7 +8,7 @@ const Menu = ({ pageContext: { menu } }) => {
       <SEO title={menu.items.title} />
       <div>
         <h1>{menu.items.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: menu.item.url }} />
+        <div dangerouslySetInnerHTML={{ __html: menu.items.url }} />
       </div>
     </Layout>
   )

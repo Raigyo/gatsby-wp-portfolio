@@ -4,7 +4,7 @@
 
 > 🔨 Portfolio and blog project using a Wordpress as API. Datas are fetched with GraphQL and generated as a static website using Gatsby. From udemy '[Gatsby JS: Build Gatsby static sites with React & WordPress](https://www.udemy.com/course/gatsby-js-react-wordpress-graphql/)'.
 
-See the static site generated on [Netlify](https://pedantic-yonath-ad9ca3.netlify.app/).
+See the static site generated on [Netlify](https://brave-tereshkova-73f0c7.netlify.app/home).
 
 ![gatsby-logo](_readme-img/gatsby-logo.jpg)
 
