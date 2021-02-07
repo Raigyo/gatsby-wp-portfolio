@@ -1,6 +1,6 @@
 # JAMstack: Gatsby portfolio using Wordpress as headless CMS API and GraphQL
 
-*January*
+*January - February 2021*
 
 > 🔨 Portfolio and blog project using a Wordpress as API. Datas are fetched with GraphQL and generated as a static website using Gatsby. From udemy '[Gatsby JS: Build Gatsby static sites with React & WordPress](https://www.udemy.com/course/gatsby-js-react-wordpress-graphql/)'.
 
