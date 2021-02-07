@@ -14,11 +14,12 @@ See the original starter [readme.md](README-Gatsby-cli.md) for more informations
 ## WP Json test
 
 ````
-- [https://<WP-URL>/wp-json/wp/v2/posts](https://<WP-URL>/wp-json/wp/v2/posts)
-- [https://<WP-URL>/wp-json/wp/v2/pages](https://<WP-URL>/wp-json/wp/v2/pages)
-- [https://<WP-URL>//wp-json/wp/v2/portfolio](https://<WP-URL>/wp-json/wp/v2/portfolio)
+wp-json/wp/v2/posts
+wp-json/wp/v2/pages
+wp-json/wp/v2/portfolio
 wp-json/wp/v2/favicon
 wp-json/wp/v2/logo
+/wp-json/wp-api-menus/v2/menus
 ````
 
 ## Stack / Dependancies
@@ -84,6 +85,8 @@ Used to retrieve menus in WP.
 - [WP API Menus](https://wordpress.org/plugins/wp-api-menus/): This plugin extends the WordPress JSON REST API with new routes for WordPress registered menus. Ex: [https://<WP-URL>/wp-json/wp-api-menus/v2/menus](https://<WP-URL>/wp-json/wp-api-menus/v2/menus)
 - [Advanced Custom Fields](https://fr.wordpress.org/plugins/advanced-custom-fields/): Use the Advanced Custom Fields plugin to take full control of your WordPress edit screens & custom field data.
 - [ACF to REST API](https://fr.wordpress.org/plugins/acf-to-rest-api/): Exposes Advanced Custom Fields Endpoints in the WordPress REST API.
+- [Wordpress api logo plugin](https://github.com/tomphill/wp-rest-api-logo)
+- [Wordpress api favicon plugin](https://github.com/tomphill/wp-rest-api-favicon)
 
 ## WP: functions.php
 
@@ -154,13 +157,7 @@ function get_image_src( $object, $field_name, $request ) {
 
 Note: in Wordpress, even if it generates excerpt automatically, we need to insert them because when we migrate the automatic version disappear.
 
-Wordpress api logo plugin:
 
-https://github.com/tomphill/wp-rest-api-logo
-
-Wordpress api favicon plugin:
-
-https://github.com/tomphill/wp-rest-api-favicon
 
 ## Useful links
 
@@ -180,3 +177,4 @@ https://github.com/tomphill/wp-rest-api-favicon
 - [WP Rest API: details of latest post including featured media url in one request?](https://wordpress.stackexchange.com/questions/241271/wp-rest-api-details-of-latest-post-including-featured-media-url-in-one-request)
 - [Favicon & App Icon Generator](https://www.favicon-generator.org/)
 - [Pagination in GatsbyJS](https://nickymeuleman.netlify.app/blog/gatsby-pagination)
+- [How to set up Meta Tags with Gatsby Helmet](https://graphicscove.com/how-to-set-up-meta-tags-with-gatsby-helmet)
