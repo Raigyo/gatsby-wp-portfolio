@@ -24,21 +24,24 @@ const PageNumber = styled(Link)`
 // \ STYLES
 
 const BlogPostList = ({ pageContext }) => {
+  console.log("---------")
+  console.log("pageContext: ", pageContext)
+  console.log("---------")
   return (
     <Layout>
       {pageContext.posts.map(post => (
-        <div key={post.id}>
+        <div key={post.date}>
           <SEO title={post.title} />
           <h3 dangerouslySetInnerHTML={{ __html: post.title }} />
           <small>{post.date}</small>
           <p dangerouslySetInnerHTML={{ __html: post.excerpt }} />
           <div>
-            <Link to={`/blog/${post.slug}`}>Read more</Link>
+            <Link to={`/post/${post.slug}`}>Read more</Link>
           </div>
         </div>
       ))}
       <Pagination>
-        {Array.from({ length: pageContext.numberOfPages }).map((_, index) => (
+        {Array.from({ length: pageContext.numberOfPages }, (_, index) => (
           <PageNumberWrapper
             key={index}
             isCurrentPage={index + 1 === pageContext.currentPage}

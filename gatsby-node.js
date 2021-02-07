@@ -27,6 +27,7 @@ exports.createPages = async ({ graphql, actions }) => {
           excerpt
           content
           slug
+          date(formatString: "Do MMM YYYY HH:mm")
         }
       }
       allWpPage(sort: { fields: [date] }) {
@@ -79,7 +80,7 @@ exports.createPages = async ({ graphql, actions }) => {
           // as a template component. The `context` is
           // optional but is often necessary so the template
           // can query data specific to each page.
-          path: `/blog/${post.slug}`,
+          path: `/post/${post.slug}`,
           component: `/${postTemplate}`,
           context: { post },
         })
@@ -127,31 +128,18 @@ exports.createPages = async ({ graphql, actions }) => {
         "./src/templates/blogPostList.js"
       )
       // prettier-ignore
-      Array.from({ length: numberOfPages }).forEach((_, index) => {
-      createPage({
-        path: index === 0 ? "/blog" : `/blog/${index + 1}`,
-        matchPath: "/blog/*",
-        component: `/${blogPostListTemplate}`,
-        context: {
-          posts: posts.slice(
-            index * postsPerPage,
-            (index * postsPerPage + postsPerPage)
-          ),
-          numberOfPages,
-          currentPage: index + 1,
-        },
-      })
-
-      const pageTemplate = path.resolve("./src/templates/post.js")
-      _.each(posts, post => {
+      Array.from({ length: numberOfPages }).map((page, index) => {
         createPage({
-          path: `/blog/${post.node.slug}`,
+          path: index === 0 ? "/blog" : `/blog/${index + 1}`,
           matchPath: "/blog/*",
-          component: `/${pageTemplate}`,
-          context: post.node,
+          component: `/${blogPostListTemplate}`,
+          context: {
+            posts: posts.slice(index * postsPerPage, (index * postsPerPage) + postsPerPage),
+            numberOfPages,
+            currentPage: index + 1,
+          },
         })
       })
-    })
     }) // \.then
 
     .catch(err => console.log(err))

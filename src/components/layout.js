@@ -3,6 +3,8 @@
 import React from "react"
 import MainMenu from "./MainMenu"
 import styled, { createGlobalStyle } from "styled-components"
+// import { useStaticQuery, graphql } from "gatsby"
+import FavIcon from "./FavIco"
 
 // STYLES
 
@@ -24,6 +26,7 @@ const LayoutWrapper = styled.div`
 
 const Layout = ({ children }) => (
   <div>
+    <FavIcon />
     <GlobalStyles />
     <MainMenu />
     <LayoutWrapper>{children}</LayoutWrapper>

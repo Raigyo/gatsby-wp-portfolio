@@ -31,7 +31,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        // icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
     {
@@ -57,7 +57,12 @@ module.exports = {
         verboseOutput: false,
         perPage: 100,
         concurrentRequests: 10,
-        includedRoutes: ["**/*/*/menus", "**/*/*/portfolio"],
+        includedRoutes: [
+          "**/*/*/menus",
+          "**/*/*/portfolio",
+          "/*/*/logo",
+          "/*/*/favicon",
+        ],
         excludedRoutes: [],
         ormalizer: function ({ entities }) {
           return entities

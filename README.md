@@ -13,9 +13,13 @@ See the original starter [readme.md](README-Gatsby-cli.md) for more informations
 
 ## WP Json test
 
+````
 - [https://<WP-URL>/wp-json/wp/v2/posts](https://<WP-URL>/wp-json/wp/v2/posts)
 - [https://<WP-URL>/wp-json/wp/v2/pages](https://<WP-URL>/wp-json/wp/v2/pages)
 - [https://<WP-URL>//wp-json/wp/v2/portfolio](https://<WP-URL>/wp-json/wp/v2/portfolio)
+wp-json/wp/v2/favicon
+wp-json/wp/v2/logo
+````
 
 ## Stack / Dependancies
 
@@ -150,6 +154,14 @@ function get_image_src( $object, $field_name, $request ) {
 
 Note: in Wordpress, even if it generates excerpt automatically, we need to insert them because when we migrate the automatic version disappear.
 
+Wordpress api logo plugin:
+
+https://github.com/tomphill/wp-rest-api-logo
+
+Wordpress api favicon plugin:
+
+https://github.com/tomphill/wp-rest-api-favicon
+
 ## Useful links
 
 - [Github repo for Gatsby wordpress theme - tomphill/wp-gatsby-js-theme-starter](https://github.com/tomphill/wp-gatsby-js-theme-starter)
@@ -167,3 +179,4 @@ Note: in Wordpress, even if it generates excerpt automatically, we need to inser
 - [Unsplash - The internet’s source of freely-usable images.](https://unsplash.com/)
 - [WP Rest API: details of latest post including featured media url in one request?](https://wordpress.stackexchange.com/questions/241271/wp-rest-api-details-of-latest-post-including-featured-media-url-in-one-request)
 - [Favicon & App Icon Generator](https://www.favicon-generator.org/)
+- [Pagination in GatsbyJS](https://nickymeuleman.netlify.app/blog/gatsby-pagination)
